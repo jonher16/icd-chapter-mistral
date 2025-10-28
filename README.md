@@ -38,15 +38,14 @@ This repository fine-tunes Mistral language models to predict ICD-10 chapters fr
 
 | Setting                | Value                                             |
 | ---------------------- | ------------------------------------------------- |
+| Model                  | ministral-8b-latest                               |
+| Dataset                | 24,000 discharge notes (MIMIC IV)                 |
 | Total Tokens Processed | 25.23M                                            |
 | Epochs / Steps         | 1 epoch / 98 steps                                |
 | Learning Rate          | 1.5e-5                                            |
 | Weight Decay           | 0.05                                              |
 | Warmup Fraction        | 0.08                                              |
 | Gradient Clip Norm     | 1.0                                               |
-| Model                  | ministral-8b-latest                               |
-| Dataset                | 24,000 discharge notes                            |
-| Objective              | Learn richer patterns including rare ICD chapters |
 | Cost                   | **€22.71**                                        |
 
 #### Test Evaluation Results
