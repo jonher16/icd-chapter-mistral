@@ -6,6 +6,7 @@
   - [What is ICD?](#what-is-icd)
   - [Project Objective](#project-objective)
 - [Project Structure](#project-structure)
+- [Fine Tuning Results](#fine-tuning-results)
 - [Setup](#setup)
   - [Install Dependencies](#install-dependencies)
   - [Download MIMIC-IV Data](#download-mimic-iv-data)
@@ -31,7 +32,34 @@ ICD (International Classification of Diseases) is a medical classification syste
 
 This repository fine-tunes Mistral language models to predict ICD-10 chapters from clinical discharge notes. The model learns to classify medical text into diagnostic categories based on primary diagnoses from the MIMIC-IV dataset.
 
----
+### Fine-Tuning Results
+
+#### Training Settings
+
+| Setting                | Value                                             |
+| ---------------------- | ------------------------------------------------- |
+| Total Tokens Processed | 25.23M                                            |
+| Epochs / Steps         | 1 epoch / 98 steps                                |
+| Learning Rate          | 1.5e-5                                            |
+| Weight Decay           | 0.05                                              |
+| Warmup Fraction        | 0.08                                              |
+| Gradient Clip Norm     | 1.0                                               |
+| Model                  | ministral-8b-latest                               |
+| Dataset                | 24,000 discharge notes                            |
+| Objective              | Learn richer patterns including rare ICD chapters |
+| Cost                   | **€22.71**                                        |
+
+#### Test Evaluation Results
+
+| Metric      | ministral-8b-latest (Base) | ministral-8b-latest (FT) |     Δ Gain |
+| ----------- | -------------------------: | -----------------------: | ---------: |
+| Accuracy    |                      0.660 |                **0.788** | **+19.4%** |
+| Macro-F1    |                      0.493 |                **0.713** | **+44.6%** |
+| Weighted-F1 |                      0.654 |                **0.782** | **+19.6%** |
+| MCC         |                      0.619 |                **0.762** | **+23.1%** |
+
+**Model ID:**  
+`ft:ministral-8b-latest:ebea8cff:20251028:mini8b-icd-chap:9dd1cf6a`
 
 ## Project Structure
 
