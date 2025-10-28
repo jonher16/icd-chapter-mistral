@@ -1,0 +1,30 @@
+# Experiment metadata
+run_name: "icd-chap-1"  # Max 18 chars for Mistral API suffix
+seed: 42
+
+# Data
+train_path: "data/train.jsonl"
+val_path: "data/val.jsonl"
+test_path: "data/test.jsonl"
+text_key: "messages"  # For chat format
+class_names: "../../mimic_data/jsonl/chapter_metadata.json"  # Path to chapter metadata
+
+# Model
+model: "ministral-8b-latest"
+
+# Training hyperparameters
+train:
+  epochs: 1
+  train_steps: null  # if set, overrides epochs for token accounting & API
+  learning_rate: 1.5e-5
+  weight_decay: 0.05
+  warmup_fraction: 0.08
+  gradient_clip_norm: 1.0
+
+# W&B logging
+wandb:
+  enabled: true
+  project: "icd_chapter-ft"
+
+# Output
+output_dir: "outputs"
