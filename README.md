@@ -205,7 +205,7 @@ python data_preparation/sample_data_splits.py [OPTIONS]
 
 **Note Filtering:**
 - `--percentile-low` - Lower percentile for note length filtering (default: 5.0)
-- `--percentile-high` - Upper percentile for note length filtering (default: 30.0)
+- `--percentile-high` - Upper percentile for note length filtering (default: 90.0)
 
 **Other:**
 - `--seed` - Random seed for reproducibility (default: 42)
